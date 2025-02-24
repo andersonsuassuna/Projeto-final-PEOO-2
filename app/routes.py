@@ -44,7 +44,7 @@ def registro():
     senha=request.form.get("senha")
     endereco=request.form.get("endereco")
     for linha in (gerar_lista()):
-        if linha[0]==email:
+        if linha[2]==email:
             flash("Insira um usuário diferente!")
             return redirect("/registrar")
     else:

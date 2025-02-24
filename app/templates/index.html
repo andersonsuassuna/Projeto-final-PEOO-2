@@ -1,10 +1,23 @@
 {% extends "base.html" %}
 {% block conteudo %}
 
-    <h2>GANHAMOAOIAOISOAISO</h2>
-        <h3>nome: {{nome}} --- idade: {{idade}}</h3> 
-    <p>
-        <img class="imgquadrada" src="{{ url_for('static',filename="img/anderson.jpg") }}">
-    </p>
+    <h2>Consultório de Fisioterapia</h2>
+    <nav>
+        <a href="/index">
+            <img src="{{ url_for('static',filename="img/inicio.png")}}" alt="Página Inicial" style="width:80px;height:80px;">
+        </a>
+        <a href="/atendimentos">
+            <img src="{{ url_for('static',filename="img/carrinho.png")}}" alt="Atendimentos" style="width:80px;height:80px;">
+        </a>
+        <a href="/contato">
+            <img src="{{ url_for('static',filename="img/atendimento.png")}}" alt="Atendimentos" style="width:80px;height:80px;">
+        </a>
+        <a href="/login">
+            <img src="{{ url_for('static',filename="img/login.png")}}" alt="Atendimentos" style="width:80px;height:80px;">
+        </a>
+        <a href="/registrar">
+            <img src="{{ url_for('static',filename="img/registrado.png")}}" alt="Atendimentos" style="width:80px;height:80px;">
+        </a>
+    </nav>
 
 {% endblock %}

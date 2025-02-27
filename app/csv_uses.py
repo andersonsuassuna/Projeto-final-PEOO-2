@@ -15,4 +15,7 @@ def escrever_csv(texto): # append no csv
       file_writer = csv.writer(csvfile,delimiter=',')
       file_writer.writerow(texto)
 
-adm=Usuario("84998274748","Anderson","andersonssgf7@gmail.com","Andinhossgf1*","Rua 13 de Maio, 130")
+def substituir_csv(texto):
+   with open("user.csv","w",newline="") as csvfile:
+      file_writer=csv.writer(csvfile,delimiter=",")
+      file_writer.writerow(texto)

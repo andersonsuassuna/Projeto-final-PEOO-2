@@ -5,13 +5,10 @@ import csv
 from .classes import *
 from .csv_uses import *
 
-@app.route("/", defaults={"nome":"usuário"})
-@app.route("/index/", defaults={"nome":"usuário"})
-@app.route("/index/<nome>")
-def index(nome):
-    dicionario={"nome":nome,
-                "idade":"17"}
-    return render_template('index.html', **dicionario)
+@app.route("/")
+@app.route("/index/")
+def index():
+    return render_template('index.html')
 
 @app.route("/contato")
 def contato():
@@ -28,7 +25,8 @@ def autenticar():
     lista=gerar_lista()
     for i in lista:
         if email==i[2] and senha==i[3]:
-            return f"usuário: {email} e senha: {senha}"
+            substituir_csv([i[0],i[1],i[2],i[3],i[4]])
+            return redirect("/index")
     flash("Dados inválidos!")
     return redirect("/login")
 
@@ -50,3 +48,19 @@ def registro():
     else:
         escrever_csv([telefone,nome,email,senha,endereco])
         return ("Registrado com sucesso!")
+
+@app.route("/atendimento")
+def atendimento():
+    return render_template("atendimento.html")
+   
+@app.route("/fisioterapia")
+def selecionar1():
+    return render_template("fisioterapia.html")
+
+@app.route("/botox")
+def selecionar2():
+    return render_template("botox.html")
+
+@app.route("/depilacao")
+def selecionar3():
+    return render_template("depilacao.html")
